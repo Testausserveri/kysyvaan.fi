@@ -1,25 +1,18 @@
 {
-  "name": "nohello.net",
-  "description": "please don't say just hello in chat",
+  "name": "kysyvaan.fi",
+  "description": "älä kysy kysyäksesi, vaan kysy",
   "version": "1.0.0",
   "license": "MIT",
   "repository": {
-    "url": "https://github.com/nohello-net/site/"
+    "url": "https://github.com/testausserveri/kysyvaan.fi"
   },
   "type": "commonjs",
   "scripts": {
     "11ty": "yarn esr --cache ./node_modules/.bin/eleventy --config ./.eleventy.ts",
     "build": "yarn 11ty",
     "serve": "yarn 11ty --serve --port=8123",
-    "check-snapshots": "act -j check-snapshots -P ubuntu-latest=mcr.microsoft.com/playwright:v1.16.3 -W ./.github/local-workflows --reuse --artifact-server-path build-artifacts; yarn post-snapshots",
-    "update-snapshots": "act -j update-snapshots -P ubuntu-latest=mcr.microsoft.com/playwright:v1.16.3 -W ./.github/local-workflows --reuse --artifact-server-path build-artifacts; yarn post-snapshots",
-    "post-snapshots": "./bin/post-snapshots.ts",
     "format": "prettier --write .",
     "lint": "eslint .",
-    "test": "yarn test:ui && yarn test:unit",
-    "test:ui": "playwright test test/ui",
-    "test:ui:update": "yarn test:ui --update-snapshots",
-    "test:unit": "mocha --require esbuild-runner/register test/unit/**/*.ts",
     "typecheck": "tsc --noEmit",
     "typecheck:watch": "tsc --noEmit --watch",
     "ci:ui": "start-server-and-test serve 8123 test:ui",
@@ -50,6 +43,7 @@
     "typescript": "^4.6.3"
   },
   "dependencies": {
+    "@11ty/eleventy": "^1.0.2",
     "@11ty/eleventy-img": "^2.0.0",
     "gettext-parser": "^5.1.1",
     "glob": "^7.2.0",
@@ -58,6 +52,7 @@
     "nunjucks": "^3.2.3",
     "patch-package": "^6.4.7",
     "postinstall-postinstall": "^2.1.0",
+    "sharp": "^0.33.4",
     "sprintf-js": "^1.1.2"
   },
   "resolutions": {
