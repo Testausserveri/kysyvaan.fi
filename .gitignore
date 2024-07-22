@@ -2,7 +2,6 @@ build/
 build-artifacts/
 test-results/
 workflow/
-
 test/ui/**/*-darwin.png
 
 
